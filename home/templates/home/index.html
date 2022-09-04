@@ -1,0 +1,296 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InstiHunt - Know your destination</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="icon" href="{% static '/images/hat_icon.png' %}" type = 'image/gif'>
+    <link href="{% static '/css/styles.css' %}" rel="stylesheet">
+    
+
+  </head>
+  <body style="background-color: #e3f2fd;">
+    <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+  <i class="fas fa-arrow-up"></i>
+</button>
+    <!--=============== SVG ===============-->
+    
+    <!--=============== NAV BAR ===============-->
+    <div >
+      <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+        <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <img src="{% static '/images/logo_footer.png' %}" height="40" width="140">
+        </a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'home_page' %}" class="nav-link px-2 link-secondary font-siz">Home</a></li>
+          <li><a href="#survey" class="nav-link px-2 link-dark font-siz">Survey</a></li>
+          <li><a href="{% url 'analytics_page' %}" class="nav-link px-2 link-dark font-siz">Analytics</a></li>
+          <li><a href="#faq" class="nav-link px-2 link-dark font-siz">FAQs</a></li>
+          <li><a href="about.html" class="nav-link px-2 link-dark font-siz">About</a></li>
+        </ul>
+  
+        <div class="col-md-3 text-end">
+          {% if user.is_authenticated %}
+              <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'logout_page' %}`;">
+                  Logout
+              </button>
+          {% else %}
+              <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'login_page' %}`;">
+                  Login
+              </button>
+              <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'signup_page' %}`;">
+                  Sign-up
+              </button>
+          {% endif%}
+        </div>
+      </header>
+    </div>
+
+      <main>
+    <!--=============== HOME ===============-->
+        
+      <div id="carouselExampleFade" class="carousel slide carousel-fade container pt-1 pb-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="{% static '/images/madras.jpg' %}" class="d-block w-100 car-sl" height="686px" alt="...">
+                          
+          </div>
+
+
+          <div class="carousel-item" data-bs-interval="6000">
+            <img src="{% static '/images/srm-ub.jpg' %}" class="d-block w-100" height="686px" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Second slide label</h1>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="{% static '/images/univ3.jpg' %}" class="d-block w-100" height="686px"  alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Third slide label</h1>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-pill cus" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-pill cus" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    
+      
+    <!--=============== SURVEY ===============-->
+    <section id="survey" class="container">
+
+      <div class="text-center pt-4">
+        <h1>Choose your Career Path</h1>
+      </div>
+        
+      <div class="text-center pt-2 pb-2">
+        <p class="text-intro-sur">
+          Kickstart your career now! Choose the field you're interested in 
+        </p>
+  
+      </div>
+          
+        <div class="row overflow-hidden gx-5 pt-4">
+          
+          <a href="{% url 'home_page' %}" class="col">
+            <div class="p-1 text-center">
+              <img src="{% static '/images/engineering.png' %}" height="150px" width="150px">
+              <h2 class="text-center">Engineering</h2>
+            </div>
+          </a>
+  
+          <a href="survey/engineering_survey.html" class="col">
+            <div class="p-1 text-center">
+              <img src="{% static '/images/medical.png' %}" height="150px" width="150px">
+              <h2 class="text-center">Medical</h2>
+            </div>
+          </a>
+  
+          <a href="survey/engineering_survey.html" class="col">
+            <div class="p-1 text-center">
+              <img src="{% static '/images/management.png' %}" height="150px" width="150px">
+              <h2 class="text-center">Management</h2>
+            </div>
+          </a>
+          
+        </div>
+  
+        <div class="row overflow-hidden gx-5 pt-5">
+  
+          <a href="survey/engineering_survey.html" class="col">
+            <div class="p-1 text-center">
+              <img src="{% static '/images/arts.png' %}" height="150px" width="150px">
+              <h2 class="text-center">Design</h2>
+            </div>
+          </a>
+  
+          <a href="survey/engineering_survey.html" class="col">
+            <div class="p-1 text-center">
+              <img src="{% static '/images/science.png' %}" height="150px" width="150px">
+              <h2 class="text-center">Science</h2>
+            </div>
+          </a>
+  
+          <a href="survey/engineering_survey.html" class="col">
+            <div class="p-1 text-center">
+              <img src="{% static '/images/law.png' %}" height="150px" width="150px">
+              <h2 class="text-center">Law</h2>
+            </div>
+          </a>
+          
+        </div>
+
+
+      
+    </section>
+
+    <!--=============== FAQ ===============-->
+
+    <section id="faq" class="container pt-5"> 
+
+      <div class="pt-4 w-90 pb-4">
+        <h1 class="text-center">Frequently Asked Questions</h1>
+      </div>
+
+      <div class="accordion accordion-flush border border-3 content-font acc-cont" id="accordionExample" style="background-color: #e3f2fd;">
+        <div class="accordion-item">
+          <h2 class="accordion-header text-dark" id="headingOne">
+            <button class="accordion-button acc-col" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              How does InstiHunt work?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="background-color: #e3f2fd;">
+            <div class="accordion-body">
+              <strong>The users are initially requested to login/signup to InstiHunt.</strong> After the signup/login, the user can go through a survey where he can find directly for a college or go through set of questions to take a note of his preferences.
+              <span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span>
+              , tries to provide gem of our services and let the user have a friendly experience.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed acc-col" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Do we need to pay to access any of the features of InstiHunt?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="background-color: #e3f2fd;">
+            <div class="accordion-body">
+              <strong>No, as of now there is no such feature in the website where the user needs to pay.</strong> <span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span>, tries to provide gem of our services and let the user have a friendly experience.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed acc-col" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              How to fetch information about the colleges in India among so many options?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="background-color: #e3f2fd;">
+            <div class="accordion-body">
+              <strong>The user doesn't need to do anything complex this.</strong>He/She just need to login/signup to <span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span> and then have to go through a survey where they will be asked few set of questions and will be considered it as preferences.<span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span> will store all the preferences and recommend colleges according to those preferences.</div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed acc-col" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              How is InstiHunt different and what new does it offer?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample" style="background-color: #e3f2fd;">
+            <div class="accordion-body">
+              <strong>The user can view analytics based on the data collected by <span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span>.</strong> Students can also analytics of particular institution by searching it's name directly or analytics on the basis of their preferences.<span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span> will definitely help you finding best college for you.</div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button collapsed acc-col" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              How to contact for help if any queries arise?
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample" style="background-color: #e3f2fd;">
+            <div class="accordion-body">
+              <strong>The user can navigate to about page and find the email and necessary details to contact to right mentors for help.</strong><span class="insti fw-bold">Insti</span><span class="hunt fw-bold">Hunt</span>provides you an option of giving feedback by navigating to feedback page in the "About" Page.</div>
+        </div>
+      </div>
+            
+      
+
+    </section>
+
+
+    <!--=============== FOOTER ===============-->
+
+        <section id="footer">
+          <div class="container">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+              <div class="col mb-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                  <img src="{% static '/images/logo_footer.png' %}" height="40" width="140">
+                </a>
+                <p>© Copyright notice.</p>
+              </div>
+          
+              <div class="col mb-3">
+          
+              </div>
+          
+              <div class="col mb-3">
+                <h5>Engineering</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Top Colleges</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Courses</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">College Predictors</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Entrance Exams</a></li>
+                </ul>
+              </div>
+          
+              <div class="col mb-3">
+                <h5>Medical</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Top Colleges</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Courses</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">College Predictors</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Entrance Exams</a></li>
+                </ul>
+              </div>
+          
+              <div class="col mb-3">
+                <h5>Management</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Top Colleges</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Courses</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">College Predictors</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Entrance Exams</a></li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+        </section>
+
+        
+      </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InstiHunt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="icon" href="{% static '/images/hat_icon.png' %}" type = 'image/gif'>
+    <link rel="stylesheet" href="{% static '/css/analytics.css' %}">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Courses ', 'Popularity'],
+          ['Engineering',    32.2],
+          ['Business and Management', 13.6],
+          ['Applied and Pure Sciences', 10.7],
+          ['Computer Science and IT', 8.2],
+          ['Creative Arts and Design', 7.7],
+          ['Social Studies and Media', 5.6],
+          ['Health and Medicine', 5.4],
+          ['Architecture and Construction', 5.1],
+          ['Law', 3.6],
+          ['Travel and Hospitality', 4.9],
+          ['Humanities', 1.5],
+          ['Personal Care and Fitness', 0.8],
+          ['Agriculture and Veterinary Medicines', 0.5],
+          ['Education and Training', 0.2]  , 
+        ]);
+
+        var options = {
+          title: 'Courses and their popularity',
+          backgroundColor: '#e3f2fd',
+          is3D: true,
+          colors: ['3333FF','FF6600','CC3366','009999','FF9966','0099FF','999999','CCCCCC','333333','CC0033','CC33FF','FFFF00','660000'],
+          titleTextStyle: {
+            fontName:'Poppins',
+            bold: true
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+
+        }
+      </script>
+      <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Placements', 'Higher Education'],
+          ['2016',  1000,      400],
+          ['2017',  1170,      460],
+          ['2018',  660,       1120],
+          ['2019',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Preferences of different Students after UG',
+          backgroundColor: '#e3f2fd',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          titleTextStyle: {
+            fontName: 'Poppins',
+            bold: true
+          }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body style="background-color: #e3f2fd;">
+    <!--=============== NAV BAR ===============-->
+      <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <a href="{% url 'home_page' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <img src="{% static '/images/logo_footer.png' %}" height="40" width="140">
+          </a>
+    
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="{% url 'home_page' %}" class="nav-link px-2 link-secondary font-siz">Home</a></li>
+            <li><a href="#survey" class="nav-link px-2 link-dark font-siz">Survey</a></li>
+            <li><a href="{% url 'analytics_page' %}" class="nav-link px-2 link-dark font-siz">Analytics</a></li>
+            <li><a href="#faq" class="nav-link px-2 link-dark font-siz">FAQs</a></li>
+            <li><a href="about.html" class="nav-link px-2 link-dark font-siz">About</a></li>
+          </ul>
+    
+          <div class="col-md-3 text-end">
+            {% if user.is_authenticated %}
+                <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'logout_page' %}`;">
+                    Logout
+                </button>
+            {% else %}
+                <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'login_page' %}`;">
+                    Login
+                </button>
+                <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'signup_page' %}`;">
+                    Sign-up
+                </button>
+            {% endif%}
+          </div>
+        </header>
+      </div>
+
+      <section class = "d-flex p-2 fixed_charts border border-5" style="background-color: #e3f2fd;">
+        <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+        <div id="curve_chart" style="width: 900px; height: 500px"></div>
+      </section>
+      </body>
+</html>

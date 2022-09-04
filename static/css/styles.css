@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.searchbar{
+  width: 600px;
+  
+}
+
+/* BASE */
+
+.title-section{
+  font-size: 2rem;
+}
+
+.content-font{
+  font-size: 1.2rem;
+}
+.acc-col{
+  background-color: #e3f2fd !important;
+  color: black !important;
+  font-size: 1.3rem;
+}
+
+/*Scroll back to top*/
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+
+/* END OF BASE*/
+
+.cus{
+  width: 50px;
+  height: 50px;
+}
+
+.row-css{
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.car-sl{
+  border-radius: 1rem;
+}
+
+
+
+@keyframes shake {
+  0% {
+      transform: translateY(-5px);
+  }
+  50% {
+      transform: translateY(5px);
+  }
+  100% {
+      transform: translateY(-5px);
+  }
+}
+
+.about{
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 1000;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  text-align: justify;
+  font-family: 'Poppins',sans-serif;
+}
+
+
+a{
+  text-decoration: none !important;
+  color: black;
+}
+
+a:hover{
+  color: #5e17eb;
+}
+
+
+
+/* SURVEY */
+
+.text-intro-sur{
+  font-size: 1.4rem;
+}
+
+/* NAV BAR */ 
+
+.font-siz{
+  font-size: 1.2rem;
+}
+
+
+/* ACCORDION CONTENT */
+
+.acc-cont{
+  border-radius: 1rem;
+  padding: 0.75rem;
+  border-color: black;
+}
+
+
+
+
+
+
+/* END OF ACCORDION*/
+
+
+/* InstiHunt Logo */
+
+.insti{
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.hunt{
+  color: #005cd8;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+
+
+/* Results Page */
+
+.results-card{
+  width: 70rem;
+  background-color: #FDEEE3;
+  margin-bottom: 2rem;
+}
+
+
+/* End of Results */

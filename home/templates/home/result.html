@@ -1,0 +1,198 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InstiHunt - Know your destination</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="icon" href="{% static '/images/hat_icon.png' %}" type = 'image/gif'>
+    <link href="{% static '/css/styles.css' %}" rel="stylesheet">
+    
+
+  </head>
+  <body style="background-color: #e3f2fd;">
+    <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+  <i class="fas fa-arrow-up"></i>
+</button>
+    <!--=============== SVG ===============-->
+    
+    <!--=============== NAV BAR ===============-->
+    <div >
+      <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+        <a href="{% url 'home_page' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <img src="{% static '/images/logo_footer.png' %}" height="40" width="140">
+        </a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'home_page' %}" class="nav-link px-2 link-secondary font-siz">Home</a></li>
+          <li><a href="#survey" class="nav-link px-2 link-dark font-siz">Survey</a></li>
+          <li><a href="{% url 'analytics_page' %}" class="nav-link px-2 link-dark font-siz">Analytics</a></li>
+          <li><a href="#faq" class="nav-link px-2 link-dark font-siz">FAQs</a></li>
+          <li><a href="about.html" class="nav-link px-2 link-dark font-siz">About</a></li>
+        </ul>
+  
+        <div class="col-md-3 text-end">
+          {% if user.is_authenticated %}
+              <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'logout_page' %}`;">
+                  Logout
+              </button>
+          {% else %}
+              <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'login_page' %}`;">
+                  Login
+              </button>
+              <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href=`{% url 'signup_page' %}`;">
+                  Sign-up
+              </button>
+          {% endif%}
+        </div>
+      </header>
+    </div>
+    <main class="container">
+    <!--=============== Results ===============-->
+    <section id="features">    
+    </section>
+
+    <!--=============== ABOUT US ===============-->
+
+    <section name="aboutus">
+            
+      
+
+    </section>
+
+
+    <!--=============== FOOTER ===============-->
+
+    <section id="footer">
+        <div class="container">
+          <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+            <div class="col mb-3">
+              <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <img src="{% static '/images/logo_footer.png' %}" height="40" width="140">
+              </a>
+              <p>© Copyright notice.</p>
+            </div>
+        
+            <div class="col mb-3">
+        
+            </div>
+        
+            <div class="col mb-3">
+              <h5>Engineering</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Top Colleges</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Courses</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">College Predictors</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Entrance Exams</a></li>
+              </ul>
+            </div>
+        
+            <div class="col mb-3">
+              <h5>Medical</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Top Colleges</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Courses</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">College Predictors</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Entrance Exams</a></li>
+              </ul>
+            </div>
+        
+            <div class="col mb-3">
+              <h5>Management</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Top Colleges</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Popular Courses</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">College Predictors</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Entrance Exams</a></li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+      
+    </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+<script>
+  let gettingCurrent = window.location.href;
+  gettingCurrent+='college_list/'
+  console.log(gettingCurrent);
+  const image_arr=['https://images.collegedunia.com/public/college_data/images/appImage/1509430807cover.jpg?h=300&w=250&mode=stretch','https://images.collegedunia.com/public/college_data/images/appImage/25703_IIT_New.jpg?h=300&w=250&mode=stretch']
+    fetch(gettingCurrent)
+        .then((r) => r.json())
+        .then((response) => {
+            for(let i=0,j=3;i<Object.keys(response).length;i++,j++){
+                const section=document.getElementById("features");
+                const results_card=document.createElement("div");
+                results_card.classList.add("results-card");
+                results_card.classList.add("card");
+                results_card.classList.add("mb-3");
+                const results_div=document.createElement("div");
+                results_div.classList.add("row");
+                results_div.classList.add("g-0");
+                const image_div=document.createElement("div");
+                image_div.classList.add("col-md-4");
+                const img = document.createElement('img');
+                if(i<2)
+                  img.src =image_arr[i];
+                else
+                  img.src =response[i-2]["img"];
+                img.classList.add("img-fluid");
+                img.classList.add("rounded-start");
+                img.classList.add("img-col");
+                image_div.append(img);
+                const text_div=document.createElement("div");
+                text_div.classList.add("col-md-8");
+                const body_div=document.createElement("div");
+                body_div.classList.add("card-body");
+                const heading=document.createElement("h5");
+                heading.classList.add("card-title");
+                heading.classList.add("pt-2");
+                heading.classList.add("pb-2");
+                heading.innerText=response[i]["College Name"];
+                body_div.append(heading)
+                const address=document.createElement("p");
+                address.innerText=response[i]["Address"];
+                address.classList.add("card-text");
+                address.classList.add("fs-5");
+                body_div.append(address)
+                const row_div=document.createElement("div");
+                row_div.classList.add("row");
+                const exam=document.createElement("p");
+                exam.innerText=response[i]["EXAM"];
+                exam.classList.add("card-text");
+                exam.classList.add("fs-5");
+                exam.classList.add("col");
+                row_div.append(exam);
+                const fee=document.createElement("p");
+                fee.innerText=response[i]["BTECH"];
+                fee.classList.add("card-text");
+                fee.classList.add("fs-5");
+                fee.classList.add("col");
+                row_div.append(fee);
+                const rating=document.createElement("p");
+                rating.innerText=response[i]["Rating"];
+                rating.classList.add("card-text");
+                rating.classList.add("fs-5");
+                rating.classList.add("col");
+                row_div.append(rating);
+                body_div.append(row_div);
+                text_div.append(body_div);
+                results_div.append(image_div);
+                results_div.append(text_div);
+                results_card.append(results_div);
+                section.append(results_card);
+
+            }
+        })
+</script>
+</html>
